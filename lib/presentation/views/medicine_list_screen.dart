@@ -6,6 +6,7 @@ import 'package:state_management_exercise/presentation/helpers/open_dialog.dart'
 import 'package:state_management_exercise/presentation/widgets/product_box_decoration.dart';
 
 class MedicineListScreen extends ConsumerStatefulWidget {
+  static const name = 'medicineList';
   const MedicineListScreen({super.key});
 
   @override

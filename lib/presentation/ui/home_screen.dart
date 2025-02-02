@@ -6,6 +6,7 @@ import 'package:state_management_exercise/presentation/widgets/pop_up_menu_custo
 import 'package:weinds/tokens/colors.dart';
 
 class HomeScreen extends StatefulWidget {
+  static const name = 'home_screen';
   const HomeScreen({super.key});
 
   @override
@@ -22,9 +23,7 @@ class _HomeScreenState extends State<HomeScreen> {
       bottom: true,
       child: Scaffold(
         appBar: AppBar(
-          actions: [
-            PopUpMenuCustom()
-          ],
+          actions: [PopUpMenuCustom()],
           toolbarHeight: 80,
           backgroundColor: WeinDsColors.strongPrimary,
           title: Text(
@@ -59,4 +58,3 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 }
-
