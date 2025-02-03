@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
+import 'package:state_management_exercise/presentation/screens.dart';
 
 class PopUpMenuCustom extends StatelessWidget {
   const PopUpMenuCustom({
@@ -10,12 +12,16 @@ class PopUpMenuCustom extends StatelessWidget {
     return PopupMenuButton(
       position: PopupMenuPosition.under,
       padding: EdgeInsets.only(right: 15),
-      icon: Icon(Icons.more_vert_rounded, color: Colors.white, size: 30,),
+      icon: Icon(
+        Icons.more_vert_rounded,
+        color: Colors.white,
+        size: 30,
+      ),
       onSelected: (value) {
         if (value == 1) {
-          print("Opcion 1");
-        } else if (value == 2){
-          print("Opcion 2");
+          context.pushNamed(SignInScreen.name);
+        } else if (value == 2) {
+          context.pushNamed(SignUpScreen.name);
         }
       },
       itemBuilder: (context) => [

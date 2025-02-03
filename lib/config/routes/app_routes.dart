@@ -20,6 +20,15 @@ final appRouter = GoRouter(
       path: '/medicineList',
       builder: (context, state) => const MedicineListScreen(),
       ),
-
+    GoRoute(
+      name: SignInScreen.name,
+      path: '/signIn',
+      builder: (context, state) => const SignInScreen(),
+      ),
+    GoRoute(
+      name: SignUpScreen.name,
+      path: '/signUp',
+      builder: (context, state) => const SignUpScreen(),
+      ),
   ]
 );
