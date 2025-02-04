@@ -5,18 +5,18 @@ class CustomTextFormField extends StatefulWidget {
   final String label;
   final String? errorMessage;
   final FormFieldValidator<String>? validator;
-  final TextEditingController? controller;
   final ValueChanged<String>? onChanged;
+  final TextInputType? keyboardType;
   final bool obscureText;
 
   const CustomTextFormField({
-    this.obscureText = false,
     super.key,
     required this.label,
-    this.controller,
-    this.onChanged, 
-    this.errorMessage, 
+    this.onChanged,
+    this.errorMessage,
     this.validator,
+    this.obscureText = false,
+    this.keyboardType = TextInputType.text,
   });
 
   @override
@@ -61,7 +61,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         child: TextFormField(
           validator: widget.validator,
           obscureText: widget.obscureText,
-          controller: widget.controller,
+          keyboardType: widget.keyboardType,
           style: const TextStyle(fontSize: 25),
           decoration: InputDecoration(
             isDense: true,

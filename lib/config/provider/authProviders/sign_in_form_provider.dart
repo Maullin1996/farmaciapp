@@ -1,7 +1,6 @@
-//Step number 1 - Provider State
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:formz/formz.dart';
-import 'package:state_management_exercise/infraestructure/inputs/inputs.dart';
+import 'package:state_management_exercise/infraestructure/inputsSignIn/inputs_sign_in.dart';
 
 class SignInFormState {
   final bool isPosting;
@@ -10,19 +9,20 @@ class SignInFormState {
   final Username username;
   final UserPassword userPassword;
 
-  SignInFormState(
-      {this.isPosting = false,
-      this.isFormPosted = false,
-      this.isValid = false,
-      this.username = const Username.pure(),
-      this.userPassword = const UserPassword.pure()});
+  SignInFormState({
+    this.isPosting = false,
+    this.isFormPosted = false,
+    this.isValid = false,
+    this.username = const Username.pure(),
+    this.userPassword = const UserPassword.pure(),
+  });
 
   SignInFormState copyWith(
           {bool? isPosting,
           bool? isFormPosted,
           bool? isValid,
           Username? username,
-          UserPassword? userPassword}) =>
+          UserPassword? userPassword,}) =>
       SignInFormState(
           isPosting: isPosting ?? this.isPosting,
           isFormPosted: isFormPosted ?? this.isFormPosted,
@@ -51,14 +51,18 @@ class SignInFormNotifier extends StateNotifier<SignInFormState> {
     final newUsername = Username.dirty(value);
     state = state.copyWith(
         username: newUsername,
-        isValid: Formz.validate([newUsername, state.userPassword]));
+        isValid: Formz.validate([
+          newUsername,
+          state.userPassword,
+        ]));
   }
 
   onPasswordChange(String value) {
     final newPassword = UserPassword.dirty(value);
     state = state.copyWith(
         userPassword: newPassword,
-        isValid: Formz.validate([state.username, newPassword]));
+        isValid: Formz.validate(
+            [state.username, newPassword]));
   }
 
   onFormSubmit() {
@@ -84,6 +88,7 @@ class SignInFormNotifier extends StateNotifier<SignInFormState> {
 //Step number 3 - StateNotifierProvider
 
 final signInFormProvider =
-    StateNotifierProvider.autoDispose<SignInFormNotifier, SignInFormState>((ref) {
+    StateNotifierProvider.autoDispose<SignInFormNotifier, SignInFormState>(
+        (ref) {
   return SignInFormNotifier();
 });

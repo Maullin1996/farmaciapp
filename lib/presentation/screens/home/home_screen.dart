@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:state_management_exercise/config/menu/menu_items.dart';
 import 'package:state_management_exercise/presentation/views/medicine_list_screen.dart';
 import 'package:state_management_exercise/presentation/views/medicine_screen.dart';
-import 'package:state_management_exercise/presentation/widgets/pop_up_menu_custom.dart';
+import 'package:state_management_exercise/presentation/widgets/widgets.dart';
 import 'package:weinds/tokens/colors.dart';
 
 class HomeScreen extends StatefulWidget {

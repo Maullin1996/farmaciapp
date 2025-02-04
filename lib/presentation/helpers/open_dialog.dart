@@ -15,5 +15,5 @@ void openDialog(BuildContext context, PillItems pillItem) {
           pillItem.description
         ),
       )
-      );
-  }
+    );
+}

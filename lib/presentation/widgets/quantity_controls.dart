@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_exercise/presentation/widgets/cusom_money_display.dart';
+import 'package:state_management_exercise/presentation/widgets/custom_money_display.dart';
 import 'package:weinds/weinds.dart';
 
 class QuantityControls extends StatelessWidget {

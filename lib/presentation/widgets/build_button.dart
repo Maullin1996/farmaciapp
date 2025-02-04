@@ -5,7 +5,7 @@ class BuildButton extends StatelessWidget {
   final String text;
   final VoidCallback onPressed;
   const BuildButton({super.key, required this.text, required this.onPressed});
-
+  @override
   Widget build(BuildContext context) {
     return MaterialButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),

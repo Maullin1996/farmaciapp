@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:state_management_exercise/config/menu/pill_items.dart';
-import 'package:state_management_exercise/config/provider/list_provider.dart';
-import 'package:state_management_exercise/presentation/widgets/product_shop_decoration.dart';
+import 'package:state_management_exercise/config/provider/productsManageProviders/list_provider.dart';
+import 'package:state_management_exercise/presentation/widgets/widgets.dart';
 
 class MedicineScreen extends ConsumerWidget {
   static const name = 'medicine';
