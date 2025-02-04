@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:weinds/tokens/colors.dart';
 
-Widget buildButton(String text, VoidCallback onPressed) {
+class BuildButton extends StatelessWidget {
+  final String text;
+  final VoidCallback onPressed;
+  const BuildButton({super.key, required this.text, required this.onPressed});
+
+  Widget build(BuildContext context) {
     return MaterialButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       onPressed: onPressed,
@@ -10,4 +15,5 @@ Widget buildButton(String text, VoidCallback onPressed) {
       color: WeinDsColors.strongPrimary,
       child: Text(text, style: TextStyle(color: Colors.white, fontSize: 35)),
     );
+  }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:state_management_exercise/presentation/widgets/build_button.dart';
+import 'package:state_management_exercise/presentation/widgets/custom_text_form_field.dart';
 import 'package:weinds/weinds.dart';
 import 'package:go_router/go_router.dart';
 import 'package:state_management_exercise/presentation/screens.dart';
@@ -14,56 +15,18 @@ class SignUpScreen extends StatefulWidget {
 
 class _SignUpScreenState extends State<SignUpScreen> {
   final _formSignUpKey = GlobalKey<FormState>();
-  final defaultInputBorder = InputBorder.none;
-  final defaultContainerDecoration = const BoxDecoration(
-    color: Color.fromRGBO(238, 239, 240, 1),
-    borderRadius: BorderRadius.all(Radius.circular(16)),
-  );
-  final activeContainerDecoration = BoxDecoration(
-    color: const Color.fromARGB(255, 228, 228, 245),
-    border: Border.all(color: WeinDsColors.strongPrimary, width: 2),
-    borderRadius: const BorderRadius.all(Radius.circular(16)),
-  );
-
-  late Map<String, BoxDecoration> containerDecorations;
+  final _nameController = TextEditingController();
+  final _usernameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
 
   @override
-  void initState() {
-    super.initState();
-    containerDecorations = {
-      'name': defaultContainerDecoration,
-      'username': defaultContainerDecoration,
-      'email': defaultContainerDecoration,
-      'password': defaultContainerDecoration,
-    };
-  }
-
-  void _updateDecoration(String field) {
-    setState(() {
-      containerDecorations
-          .updateAll((key, value) => defaultContainerDecoration);
-      containerDecorations[field] = activeContainerDecoration;
-    });
-  }
-
-  Widget _buildInputField(String label, String field,
-      {bool obscureText = false}) {
-    return Container(
-      height: 85,
-      padding: const EdgeInsets.only(left: 45),
-      decoration: containerDecorations[field],
-      child: TextFormField(
-        style: TextStyle(fontSize: 25),
-        obscureText: obscureText,
-        onTap: () => _updateDecoration(field),
-        onTapOutside: (event) => setState(
-            () => containerDecorations[field] = defaultContainerDecoration),
-        decoration: InputDecoration(
-          border: defaultInputBorder,
-          label: Text(label, style: TextStyle(fontSize: 22)),
-        ),
-      ),
-    );
+  void dispose() {
+    _nameController.dispose();
+    _usernameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
   }
 
   @override
@@ -78,7 +41,9 @@ class _SignUpScreenState extends State<SignUpScreen> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                SizedBox(height: 20,),
+                SizedBox(
+                  height: 20,
+                ),
                 IconButton(
                   onPressed: () => context.pop(),
                   icon: Icon(Icons.arrow_back_sharp,
@@ -103,17 +68,34 @@ class _SignUpScreenState extends State<SignUpScreen> {
                 key: _formSignUpKey,
                 child: Column(
                   children: [
-                    _buildInputField('Name', 'name'),
+                    CustomTextFormField(
+                      label: 'Name',
+                      controller: _nameController,
+                      onChanged: (value) {},
+                    ),
                     SizedBox(height: 35),
-                    _buildInputField('Username', 'username'),
+                    CustomTextFormField(
+                      label: 'Username',
+                      controller: _usernameController,
+                      onChanged: (value) {},
+                    ),
                     SizedBox(height: 35),
-                    _buildInputField('Email', 'email'),
+                    CustomTextFormField(
+                      label: 'Email',
+                      controller: _emailController,
+                      onChanged: (value) {},
+                    ),
                     SizedBox(height: 35),
-                    _buildInputField('Password', 'password', obscureText: true),
+                    CustomTextFormField(
+                      label: 'Password',
+                      obscureText: true,
+                      controller: _passwordController,
+                      onChanged: (value) {},
+                    ),
                     SizedBox(height: 50),
-                    buildButton('Get Started', () {}),
+                    BuildButton(text: 'Get Started', onPressed: () {}),
                     SizedBox(height: 25),
-                    buildButton('Sign Up With Google', () {}),
+                    BuildButton(text: 'Sign Up With Google', onPressed: () {}),
                     SizedBox(height: 50),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.center,
