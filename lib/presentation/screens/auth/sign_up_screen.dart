@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weinds/weinds.dart';
 import 'package:go_router/go_router.dart';
@@ -74,14 +75,6 @@ class _SignUpForm extends ConsumerWidget {
             ),
             SizedBox(height: 35),
             CustomTextFormField(
-              label: 'Username',
-              errorMessage: !signUpForm.isPosting
-                  ? signUpForm.username.errorMessage
-                  : null,
-              onChanged: ref.read(signUpFormProvider.notifier).onUsernameChange,
-            ),
-            SizedBox(height: 35),
-            CustomTextFormField(
               label: 'Email',
               keyboardType: TextInputType.emailAddress,
               errorMessage: !signUpForm.isPosting
@@ -104,7 +97,15 @@ class _SignUpForm extends ConsumerWidget {
             SizedBox(height: 50),
             BuildButton(
                 text: 'Get Started',
-                onPressed:  ref.read(signUpFormProvider.notifier).onFormSubmit),
+                onPressed: () async {
+                  final navigator = Navigator.of(context);
+                  ref.read(signUpFormProvider.notifier).onFormSubmit();
+                  await Future.delayed(const Duration(seconds: 1));
+                  User? user = FirebaseAuth.instance.currentUser;
+                  if (user != null) {
+                      navigator.pop();
+                  }
+                }),
             SizedBox(height: 25),
             BuildButton(text: 'Sign Up With Google', onPressed: () {}),
             SizedBox(height: 50),

@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -73,26 +74,34 @@ class _SignInForm extends ConsumerWidget {
           child: Column(
         children: [
           CustomTextFormField(
-            label: 'Username',
+            label: 'Email',
             errorMessage: !signInForm.isPosting
-              ? signInForm.username.errorMessage
-              : null,
-            onChanged: ref.read(signInFormProvider.notifier).onUsernameChange,
+                ? signInForm.userEmail.errorMessage
+                : null,
+            onChanged: ref.read(signInFormProvider.notifier).onEmailChange,
           ),
           SizedBox(height: 35),
           CustomTextFormField(
             label: 'Password',
             errorMessage: !signInForm.isPosting
-              ? signInForm.userPassword.errorMessage
-              : null,
+                ? signInForm.userPassword.errorMessage
+                : null,
             obscureText: true,
             onChanged: ref.read(signInFormProvider.notifier).onPasswordChange,
           ),
           SizedBox(height: 50),
           BuildButton(
-            text: 'Sing In', 
-            onPressed: ref.read(signInFormProvider.notifier).onFormSubmit,
-            ),
+            text: 'Sing In',
+            onPressed: () async{
+              final navigator = Navigator.of(context);
+              ref.read(signInFormProvider.notifier).onFormSubmit();
+              await Future.delayed(const Duration(seconds: 1));
+                  User? user = FirebaseAuth.instance.currentUser;
+                  if (user != null) {
+                      navigator.pop();
+                  }
+            },
+          ),
           SizedBox(height: 25),
           BuildButton(text: 'Sing In With Google', onPressed: () {}),
           SizedBox(height: 50),

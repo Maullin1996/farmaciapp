@@ -1,4 +1,4 @@
-package com.example.state_management_exercise
+package com.maullin1996.farmaci_app
 
 import io.flutter.embedding.android.FlutterActivity
 

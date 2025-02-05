@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:state_management_exercise/config/menu/menu_items.dart';
+import 'package:state_management_exercise/infraestructure/services/auth_service.dart';
 import 'package:state_management_exercise/presentation/views/medicine_list_screen.dart';
 import 'package:state_management_exercise/presentation/views/medicine_screen.dart';
 import 'package:state_management_exercise/presentation/widgets/widgets.dart';
@@ -23,7 +25,9 @@ class _HomeScreenState extends State<HomeScreen> {
       bottom: true,
       child: Scaffold(
         appBar: AppBar(
-          actions: [PopUpMenuCustom()],
+          actions: [
+            PopUpMenuCustom()     
+          ],
           toolbarHeight: 80,
           backgroundColor: WeinDsColors.strongPrimary,
           title: Text(

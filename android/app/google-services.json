@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "226875687252",
+    "project_id": "pill-items-fd5cd",
+    "storage_bucket": "pill-items-fd5cd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:226875687252:android:eed4606de7d46e11c008c1",
+        "android_client_info": {
+          "package_name": "com.maullin1996.farmaci_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtZ_HGn63RpP8SWHIKjFFbbQ5TA4EnGeo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
