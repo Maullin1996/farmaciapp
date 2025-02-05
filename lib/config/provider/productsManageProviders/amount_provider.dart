@@ -15,6 +15,10 @@ class Counter extends _$Counter {
 
   void decreaseByOneAmount() {
     state--;
+
+    if (state == 0) {
+      state = 1;
+    }
   }
 }
 
@@ -31,5 +35,10 @@ class TotalAmount extends _$TotalAmount {
 
   void decreaseByOneAmount() {
     state = state - price;
+    if (state == 0) {
+      state = price;
+    }
   }
 }
+
+

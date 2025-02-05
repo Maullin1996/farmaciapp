@@ -3,7 +3,7 @@ import 'package:state_management_exercise/config/menu/pill_items.dart';
 
 class ListProvider extends StateNotifier<List<PillItems>> {
   ListProvider(super.state);
-  
+
   void addItem(int index) {
     state = [...state, appPillItems[index]];
   }
@@ -14,6 +14,10 @@ class ListProvider extends StateNotifier<List<PillItems>> {
 
   void removeFromListItem(int index) {
     state = [...state]..remove(appPillItems[index]);
+  }
+
+  void cleanListItem() {
+    state = [...state]..clear();
   }
 }
 

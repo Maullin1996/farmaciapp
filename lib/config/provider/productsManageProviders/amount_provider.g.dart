@@ -6,7 +6,7 @@ part of 'amount_provider.dart';
 // RiverpodGenerator
 // **************************************************************************
 
-String _$counterHash() => r'edb8a69d765bf148d40246ad401fb3e4dc6a3baa';
+String _$counterHash() => r'9cf2f195e8af67f8e11c516842d22a4cdc7e87cb';
 
 /// Copied from Dart SDK
 class _SystemHash {
@@ -168,7 +168,7 @@ class _CounterProviderElement extends NotifierProviderElement<Counter, int>
   String get id => (origin as CounterProvider).id;
 }
 
-String _$totalAmountHash() => r'4052949984d8e92e8e02777f12605d9bb229e5f5';
+String _$totalAmountHash() => r'5706e1502ca5c85409b005a8080b58fbbdb2199c';
 
 abstract class _$TotalAmount extends BuildlessNotifier<int> {
   late final String id;

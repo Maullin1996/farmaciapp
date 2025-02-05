@@ -45,7 +45,12 @@ class QuantityControls extends StatelessWidget {
             ),
           ],
         ),
-        CustomMoneyDisplay(amount: totalAmount),
+        Row(
+          children: [
+            Text('Total price  '),
+            CustomMoneyDisplay(amount: totalAmount),
+          ],
+        ),
       ],
     );
   }
