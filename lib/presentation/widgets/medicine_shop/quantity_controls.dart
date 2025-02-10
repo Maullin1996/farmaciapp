@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_exercise/presentation/widgets/custom_money_display.dart';
+import 'package:state_management_exercise/presentation/helpers/custom_money_display.dart';
 import 'package:weinds/weinds.dart';
 
 class QuantityControls extends StatelessWidget {
@@ -24,7 +24,7 @@ class QuantityControls extends StatelessWidget {
           children: [
             IconButton(
               onPressed: onDecrease,
-              icon: const Icon(Icons.remove),
+              icon: const Icon(Icons.remove, size: 16,),
             ),
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
@@ -36,19 +36,19 @@ class QuantityControls extends StatelessWidget {
                 ),
               ),
               child: Center(
-                child: Text('$counter'),
+                child: Text('$counter',style: TextStyle(fontSize: 11),),
               ),
             ),
             IconButton(
               onPressed: onIncrease,
-              icon: const Icon(Icons.add),
+              icon: const Icon(Icons.add,size: 16),
             ),
           ],
         ),
         Row(
           children: [
-            Text('Total price  '),
-            CustomMoneyDisplay(amount: totalAmount),
+            Text('Total price  ', style: TextStyle(fontSize: 11),),
+            CustomMoneyDisplay(amount: totalAmount, textStyle: TextStyle(fontSize: 11),),
           ],
         ),
       ],

@@ -62,7 +62,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
           validator: widget.validator,
           obscureText: widget.obscureText,
           keyboardType: widget.keyboardType,
-          style: const TextStyle(fontSize: 25),
+          style: const TextStyle(fontSize: 14),
           decoration: InputDecoration(
             isDense: true,
             errorText: widget.errorMessage,

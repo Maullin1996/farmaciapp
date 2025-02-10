@@ -1,12 +1,12 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
-import 'package:state_management_exercise/config/provider/authProviders/sign_in_form_provider.dart';
 import 'package:weinds/weinds.dart';
 
 import 'package:state_management_exercise/presentation/widgets/widgets.dart';
 import 'package:state_management_exercise/presentation/screens.dart';
+import 'package:state_management_exercise/config/provider/authProviders/sign_in_form_provider.dart';
+import 'package:state_management_exercise/presentation/helpers/user_validator.dart';
 
 class SignInScreen extends StatelessWidget {
   static const name = 'singIn';
@@ -26,7 +26,7 @@ class SignInScreen extends StatelessWidget {
                 decoration: BoxDecoration(
                   color: WeinDsColors.strongPrimary,
                 ),
-                height: 185,
+                height: 150,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -47,7 +47,7 @@ class SignInScreen extends StatelessWidget {
                         'FarmaciApp',
                         style: TextStyle(
                             color: Colors.white,
-                            fontSize: 45,
+                            fontSize: 40,
                             fontWeight: FontWeight.w600),
                       ),
                     ),
@@ -95,11 +95,9 @@ class _SignInForm extends ConsumerWidget {
             onPressed: () async{
               final navigator = Navigator.of(context);
               ref.read(signInFormProvider.notifier).onFormSubmit();
-              await Future.delayed(const Duration(seconds: 1));
-                  User? user = FirebaseAuth.instance.currentUser;
-                  if (user != null) {
-                      navigator.pop();
-                  }
+              if (await userValidator()) {
+                  navigator.pop();
+              }
             },
           ),
           SizedBox(height: 25),
@@ -108,14 +106,14 @@ class _SignInForm extends ConsumerWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('do not have an account?'),
+              Text('do not have an account?', style: TextStyle(fontSize: 14),),
               TextButton(
                   onPressed: () {
                     context.pushReplacementNamed(SignUpScreen.name);
                   },
                   child: Text(
                     'Register',
-                    style: TextStyle(fontSize: 18),
+                    style: TextStyle(fontSize: 14),
                   ))
             ],
           )

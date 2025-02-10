@@ -13,7 +13,7 @@ class BuildButton extends StatelessWidget {
       height: 75,
       minWidth: double.infinity,
       color: WeinDsColors.strongPrimary,
-      child: Text(text, style: TextStyle(color: Colors.white, fontSize: 35)),
+      child: Text(text, style: TextStyle(color: Colors.white, fontSize: 16)),
     );
   }
 }

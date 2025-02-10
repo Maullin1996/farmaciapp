@@ -3,7 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:state_management_exercise/config/menu/pill_items.dart';
 import 'package:state_management_exercise/config/provider/productsManageProviders/amount_provider.dart';
 import 'package:state_management_exercise/config/provider/productsManageProviders/list_provider.dart';
-import 'package:state_management_exercise/presentation/widgets/quantity_controls.dart';
+import 'package:state_management_exercise/presentation/widgets/medicine_shop/quantity_controls.dart';
 
 class ProductShopDecoration extends ConsumerWidget {
   final List<PillItems> pillsItems;
@@ -57,7 +57,7 @@ class ProductShopDecoration extends ConsumerWidget {
                   children: [
                     Text(
                       pillsInfo.name,
-                      style: const TextStyle(fontWeight: FontWeight.bold),
+                      style: const TextStyle(fontSize: 11,fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),

@@ -20,7 +20,7 @@ class PopUpMenuCustom extends StatelessWidget {
               Text(
                 'Sign in/up',
                 style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 14,
                     color: Colors.white,
                     fontWeight: FontWeight.bold),
               ),
@@ -30,7 +30,7 @@ class PopUpMenuCustom extends StatelessWidget {
                 icon: Icon(
                   Icons.more_vert_rounded,
                   color: Colors.white,
-                  size: 30,
+                  size: 26,
                 ),
                 onSelected: (value) {
                   switch (value) {
@@ -55,7 +55,7 @@ class PopUpMenuCustom extends StatelessWidget {
               Text(
                 'Sign out',
                 style: TextStyle(
-                    fontSize: 20,
+                    fontSize: 14,
                     color: Colors.white,
                     fontWeight: FontWeight.bold),
               ),

@@ -31,7 +31,7 @@ class _HomeScreenState extends State<HomeScreen> {
           title: Text(
             appMenuItems[selectedIndex].title,
             style: TextStyle(
-                color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold),
+                color: Colors.white, fontSize: 15, fontWeight: FontWeight.bold),
           ),
         ),
         backgroundColor: Colors.white,

@@ -49,14 +49,14 @@ class MedicineScreen extends ConsumerWidget {
             children: [
               Text(
                 'Total to pay:',
-                style: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 width: 10,
               ),
               CustomMoneyDisplay(
                 amount: totalToPay(),
-                textStyle: TextStyle(fontSize: 22, fontWeight: FontWeight.bold),
+                textStyle: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               SizedBox(
                 width: 15,

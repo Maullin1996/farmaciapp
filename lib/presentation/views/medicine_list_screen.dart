@@ -28,7 +28,7 @@ class MedicineListScreenState extends ConsumerState<MedicineListScreen> {
     return GridView.builder(
       padding: EdgeInsets.fromLTRB(16, 16, 16, 100),
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 3,
+        crossAxisCount: 2,
         mainAxisSpacing: distanceElements,
         crossAxisSpacing: distanceElements,
       ),

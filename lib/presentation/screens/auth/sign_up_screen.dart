@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weinds/weinds.dart';
 import 'package:go_router/go_router.dart';
@@ -7,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import 'package:state_management_exercise/config/provider/authProviders/sign_up_form_provider.dart';
 import 'package:state_management_exercise/presentation/widgets/widgets.dart';
 import 'package:state_management_exercise/presentation/screens.dart';
+import 'package:state_management_exercise/presentation/helpers/user_validator.dart';
 
 class SignUpScreen extends StatelessWidget {
   static const name = 'signUp';
@@ -22,7 +22,7 @@ class SignUpScreen extends StatelessWidget {
         body: Column(
           children: [
             Container(
-              height: 185,
+              height: 150,
               color: WeinDsColors.strongPrimary,
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -40,7 +40,7 @@ class SignUpScreen extends StatelessWidget {
                       'Sign Up to the App',
                       style: TextStyle(
                           color: Colors.white,
-                          fontSize: 45,
+                          fontSize: 30,
                           fontWeight: FontWeight.w600),
                     ),
                   ),
@@ -100,10 +100,8 @@ class _SignUpForm extends ConsumerWidget {
                 onPressed: () async {
                   final navigator = Navigator.of(context);
                   ref.read(signUpFormProvider.notifier).onFormSubmit();
-                  await Future.delayed(const Duration(seconds: 1));
-                  User? user = FirebaseAuth.instance.currentUser;
-                  if (user != null) {
-                      navigator.pop();
+                  if (await userValidator()) {
+                    navigator.pop();
                   }
                 }),
             SizedBox(height: 25),
@@ -112,11 +110,14 @@ class _SignUpForm extends ConsumerWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Already Have An Account?'),
+                Text(
+                  'Already Have An Account?',
+                  style: TextStyle(fontSize: 14),
+                ),
                 TextButton(
                   onPressed: () =>
                       context.pushReplacementNamed(SignInScreen.name),
-                  child: Text('Sign In', style: TextStyle(fontSize: 18)),
+                  child: Text('Sign In', style: TextStyle(fontSize: 14)),
                 ),
               ],
             ),
