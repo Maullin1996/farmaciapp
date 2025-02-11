@@ -10,7 +10,7 @@ class BuildButton extends StatelessWidget {
     return MaterialButton(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
       onPressed: onPressed,
-      height: 75,
+      height: 60,
       minWidth: double.infinity,
       color: WeinDsColors.strongPrimary,
       child: Text(text, style: TextStyle(color: Colors.white, fontSize: 16)),

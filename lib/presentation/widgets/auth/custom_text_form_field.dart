@@ -47,8 +47,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 85,
-      padding: const EdgeInsets.only(left: 45),
+      height: 70,
+      padding: const EdgeInsets.only(left: 45, top: 8),
       decoration: containerDecoration,
       child: Focus(
         onFocusChange: (hasFocus) {
@@ -68,7 +68,7 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
             errorText: widget.errorMessage,
             border: defaultInputBorder,
             labelText: widget.label,
-            labelStyle: const TextStyle(fontSize: 22),
+            labelStyle: const TextStyle(fontSize: 18),
           ),
           onChanged: widget.onChanged,
         ),

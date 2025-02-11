@@ -8,6 +8,8 @@ import 'package:state_management_exercise/presentation/screens.dart';
 import 'package:state_management_exercise/config/provider/authProviders/sign_in_form_provider.dart';
 import 'package:state_management_exercise/presentation/helpers/user_validator.dart';
 
+import '../../../design/copys.dart';
+
 class SignInScreen extends StatelessWidget {
   static const name = 'singIn';
   const SignInScreen({super.key});
@@ -44,7 +46,7 @@ class SignInScreen extends StatelessWidget {
                         )),
                     Center(
                       child: Text(
-                        'FarmaciApp',
+                        FarmaciAppCopys.nameApp,
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 40,
@@ -74,24 +76,24 @@ class _SignInForm extends ConsumerWidget {
           child: Column(
         children: [
           CustomTextFormField(
-            label: 'Email',
+            label: FarmaciAppCopys.emailUser,
             errorMessage: !signInForm.isPosting
                 ? signInForm.userEmail.errorMessage
                 : null,
             onChanged: ref.read(signInFormProvider.notifier).onEmailChange,
           ),
-          SizedBox(height: 35),
+          SizedBox(height: 25),
           CustomTextFormField(
-            label: 'Password',
+            label: FarmaciAppCopys.passwordUser,
             errorMessage: !signInForm.isPosting
                 ? signInForm.userPassword.errorMessage
                 : null,
             obscureText: true,
             onChanged: ref.read(signInFormProvider.notifier).onPasswordChange,
           ),
-          SizedBox(height: 50),
+          SizedBox(height: 70),
           BuildButton(
-            text: 'Sing In',
+            text: FarmaciAppCopys.singIn,
             onPressed: () async{
               final navigator = Navigator.of(context);
               ref.read(signInFormProvider.notifier).onFormSubmit();
@@ -100,19 +102,19 @@ class _SignInForm extends ConsumerWidget {
               }
             },
           ),
-          SizedBox(height: 25),
-          BuildButton(text: 'Sing In With Google', onPressed: () {}),
+          SizedBox(height: 15),
+          BuildButton(text: FarmaciAppCopys.singInGoogle, onPressed: () {}),
           SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text('do not have an account?', style: TextStyle(fontSize: 14),),
+              Text(FarmaciAppCopys.notAccount, style: TextStyle(fontSize: 14),),
               TextButton(
                   onPressed: () {
                     context.pushReplacementNamed(SignUpScreen.name);
                   },
                   child: Text(
-                    'Register',
+                    FarmaciAppCopys.register,
                     style: TextStyle(fontSize: 14),
                   ))
             ],

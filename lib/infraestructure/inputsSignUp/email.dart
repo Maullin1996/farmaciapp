@@ -1,4 +1,5 @@
 import 'package:formz/formz.dart';
+import 'package:state_management_exercise/design/copys.dart';
 
 // Define input validation errors
 enum EmailInputError { empty, invalid }
@@ -19,8 +20,8 @@ class UserEmail extends FormzInput<String, EmailInputError> {
 
   String? get errorMessage {
     if (isValid || isPure) return null;
-    if (displayError == EmailInputError.empty) return "Required Field";
-    if (displayError == EmailInputError.invalid) return "Email Format Invalid";
+    if (displayError == EmailInputError.empty) return FarmaciAppErrors.fieldEmpty;
+    if (displayError == EmailInputError.invalid) return FarmaciAppErrors.emailFormat;
     return null;
   }
 

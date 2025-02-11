@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:state_management_exercise/design/copys.dart';
 
 class AuthService {
   Future<void> signup(
@@ -15,9 +16,9 @@ class AuthService {
     } on FirebaseException catch (error) {
       String message = '';
       if (error.code == 'weak-password') {
-        message = 'The password provided is too weak.';
+        message = FarmaciAppErrors.signUpPassword;
       } else if (error.code == 'email-already-in-use') {
-        message = 'An account already exists with that email';
+        message = FarmaciAppErrors.signUpEmailUsed;
       }
       Fluttertoast.showToast(
           msg: message,
@@ -40,9 +41,9 @@ class AuthService {
     } on FirebaseException catch (error) {
       String message = '';
       if (error.code == 'invalid-email') {
-        message = 'No user found for that email.';
+        message = FarmaciAppErrors.emailNotFound;
       } else if (error.code == 'invalid-credential') {
-        message = 'Wrong password provider for the user';
+        message = FarmaciAppErrors.wrongPassword;
       }
       Fluttertoast.showToast(
           msg: message,

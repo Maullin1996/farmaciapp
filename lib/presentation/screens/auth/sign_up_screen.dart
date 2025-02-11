@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:weinds/weinds.dart';
 import 'package:go_router/go_router.dart';
 
+import 'package:state_management_exercise/design/copys.dart';
 import 'package:state_management_exercise/config/provider/authProviders/sign_up_form_provider.dart';
 import 'package:state_management_exercise/presentation/widgets/widgets.dart';
 import 'package:state_management_exercise/presentation/screens.dart';
@@ -37,7 +38,7 @@ class SignUpScreen extends StatelessWidget {
                   ),
                   Center(
                     child: Text(
-                      'Sign Up to the App',
+                      FarmaciAppCopys.singOutScreen,
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 30,
@@ -63,19 +64,19 @@ class _SignUpForm extends ConsumerWidget {
     final signUpForm = ref.watch(signUpFormProvider);
     return Expanded(
       child: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 28, vertical: 70),
+        padding: EdgeInsets.symmetric(horizontal: 28, vertical: 50),
         child: Column(
           children: [
             CustomTextFormField(
-              label: 'Name',
+              label: FarmaciAppCopys.nameUser,
               errorMessage: !signUpForm.isPosting
                   ? signUpForm.nameUser.errorMessage
                   : null,
               onChanged: ref.read(signUpFormProvider.notifier).onNameUserChange,
             ),
-            SizedBox(height: 35),
+            SizedBox(height: 25),
             CustomTextFormField(
-              label: 'Email',
+              label: FarmaciAppCopys.emailUser,
               keyboardType: TextInputType.emailAddress,
               errorMessage: !signUpForm.isPosting
                   ? signUpForm.userEmail.errorMessage
@@ -83,9 +84,9 @@ class _SignUpForm extends ConsumerWidget {
               onChanged:
                   ref.read(signUpFormProvider.notifier).onUserEmailChange,
             ),
-            SizedBox(height: 35),
+            SizedBox(height: 25),
             CustomTextFormField(
-              label: 'Password',
+              label: FarmaciAppCopys.passwordUser,
               obscureText: true,
               errorMessage: !signUpForm.isPosting
                   ? signUpForm.userPassword.errorMessage
@@ -94,9 +95,9 @@ class _SignUpForm extends ConsumerWidget {
                 ref.read(signUpFormProvider.notifier).onPasswordChange(value);
               },
             ),
-            SizedBox(height: 50),
+            SizedBox(height: 60),
             BuildButton(
-                text: 'Get Started',
+                text: FarmaciAppCopys.singUpText,
                 onPressed: () async {
                   final navigator = Navigator.of(context);
                   ref.read(signUpFormProvider.notifier).onFormSubmit();
@@ -104,20 +105,20 @@ class _SignUpForm extends ConsumerWidget {
                     navigator.pop();
                   }
                 }),
-            SizedBox(height: 25),
-            BuildButton(text: 'Sign Up With Google', onPressed: () {}),
-            SizedBox(height: 50),
+            SizedBox(height: 20),
+            BuildButton(text: FarmaciAppCopys.singOutGoogle, onPressed: () {}),
+            SizedBox(height: 40),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Already Have An Account?',
+                  FarmaciAppCopys.haveAccount,
                   style: TextStyle(fontSize: 14),
                 ),
                 TextButton(
                   onPressed: () =>
                       context.pushReplacementNamed(SignInScreen.name),
-                  child: Text('Sign In', style: TextStyle(fontSize: 14)),
+                  child: Text(FarmaciAppCopys.singIn, style: TextStyle(fontSize: 14)),
                 ),
               ],
             ),

@@ -1,4 +1,5 @@
 import 'package:formz/formz.dart';
+import 'package:state_management_exercise/design/copys.dart';
 
 // Define input validation errors
 enum PasswordInputError { empty, length, invalid }
@@ -17,9 +18,9 @@ class UserPassword extends FormzInput<String, PasswordInputError> {
 
   String? get errorMessage {
     if (isValid || isPure) return null;
-    if (displayError == PasswordInputError.empty) return "Required Field";
-    if (displayError == PasswordInputError.length) return "The Minimum Amount of characters is 6";
-    if (displayError == PasswordInputError.invalid) return "The password must have at least one capital letter and one number";
+    if (displayError == PasswordInputError.empty) return FarmaciAppErrors.fieldEmpty;
+    if (displayError == PasswordInputError.length) return FarmaciAppErrors.passwordLength;
+    if (displayError == PasswordInputError.invalid) return FarmaciAppErrors.passwordFormat;
     return null;
   }
 

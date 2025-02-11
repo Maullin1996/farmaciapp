@@ -1,4 +1,5 @@
 import 'package:formz/formz.dart';
+import 'package:state_management_exercise/design/copys.dart';
 
 // Define input validation errors
 enum PasswordInputError { empty, length, invalid }
@@ -16,7 +17,7 @@ class UserPassword extends FormzInput<String, PasswordInputError> {
 
   String? get errorMessage {
     if (isValid || isPure) return null;
-    if (displayError == PasswordInputError.empty) return "Required Field";
+    if (displayError == PasswordInputError.empty) return FarmaciAppErrors.fieldEmpty;
     return null;
   }
 

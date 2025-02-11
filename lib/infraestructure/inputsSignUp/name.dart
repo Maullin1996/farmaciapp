@@ -1,4 +1,5 @@
 import 'package:formz/formz.dart';
+import 'package:state_management_exercise/design/copys.dart';
 
 // Define input validation errors
 enum NameInputError { empty, length }
@@ -12,8 +13,8 @@ class NameUser extends FormzInput<String, NameInputError> {
   const NameUser.dirty(String value) : super.dirty(value);
   String? get errorMessage {
     if (isValid || isPure) return null;
-    if (displayError == NameInputError.empty) return "Required Field";
-    if (displayError == NameInputError.length) return "The Minimum Amount of characters is 4";
+    if (displayError == NameInputError.empty) return FarmaciAppErrors.fieldEmpty;
+    if (displayError == NameInputError.length) return FarmaciAppErrors.nameUserLength;
     return null;
   }
   // Override validator to handle validating a given input value.

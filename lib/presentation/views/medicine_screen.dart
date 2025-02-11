@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:state_management_exercise/config/menu/pill_items.dart';
 import 'package:state_management_exercise/config/provider/productsManageProviders/amount_provider.dart';
 import 'package:state_management_exercise/config/provider/productsManageProviders/list_provider.dart';
+import 'package:state_management_exercise/design/copys.dart';
 import 'package:state_management_exercise/presentation/helpers/show_custom_snackbar.dart';
 import 'package:state_management_exercise/presentation/widgets/widgets.dart';
 
@@ -48,7 +49,7 @@ class MedicineScreen extends ConsumerWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'Total to pay:',
+                FarmaciAppCopys.totalPay,
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               SizedBox(
@@ -67,10 +68,10 @@ class MedicineScreen extends ConsumerWidget {
                   if (user != null) {
                     ref.read(myPillsListProvider.notifier).cleanListItem();
                   } else {
-                    showCustomSnackbar(context, 'You Need to be sign in to pay');
+                    showCustomSnackbar(context, FarmaciAppCopys.connectionReq);
                   }
                 },
-                label: Text('pay'),
+                label: Text(FarmaciAppCopys.payText),
                 icon: Icon(Icons.shopping_cart),
               )
             ],
