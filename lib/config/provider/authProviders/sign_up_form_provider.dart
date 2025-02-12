@@ -1,7 +1,7 @@
 //Step number 1 - Provider State
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:formz/formz.dart';
-import 'package:state_management_exercise/infraestructure/inputsSignUp/inputs.dart';
+import 'package:state_management_exercise/infraestructure/auth-Inputs/inputsSignUp/inputs.dart';
 import 'package:state_management_exercise/infraestructure/services/auth_service.dart';
 
 class SignUpFormState {

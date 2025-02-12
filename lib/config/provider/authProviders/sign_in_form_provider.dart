@@ -1,6 +1,6 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:formz/formz.dart';
-import 'package:state_management_exercise/infraestructure/inputsSignIn/inputs_sign_in.dart';
+import 'package:state_management_exercise/infraestructure/auth-Inputs/inputsSignIn/inputs_sign_in.dart';
 import 'package:state_management_exercise/infraestructure/services/auth_service.dart';
 
 class SignInFormState {
