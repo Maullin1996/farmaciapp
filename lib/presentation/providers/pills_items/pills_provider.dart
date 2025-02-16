@@ -8,10 +8,8 @@ final pillsItemsProvider =
   final fetchPills = ref.watch(pillRepositoryProvider).getPillItems;
   final notifier = PillsNotifier(fetchPills: fetchPills);
 
-  // Mantiene el estado vivo aunque no haya listeners activos
   ref.keepAlive();
 
-  // Cargar los medicamentos al iniciar
   notifier.loadPills();
   return notifier;
 });

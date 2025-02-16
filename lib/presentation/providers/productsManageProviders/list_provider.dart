@@ -1,10 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:state_management_exercise/config/menu/pill_items.dart';
+import 'package:state_management_exercise/presentation/providers/pills_items/pills_provider.dart';
 
 import '../../../domain/entities/pills.dart';
 
 class ListProvider extends StateNotifier<List<PillItems>> {
-  ListProvider(super.state);
+  final List<PillItems> appPillItems;
+  ListProvider(super.state,{required this.appPillItems});
 
   void addItem(int index) {
     state = [...state, appPillItems[index]];
@@ -26,6 +27,7 @@ class ListProvider extends StateNotifier<List<PillItems>> {
 final myPillsListProvider =
     StateNotifierProvider<ListProvider, List<PillItems>>(
   (ref) {
-    return ListProvider([]);
+    final List<PillItems> appPillItems = ref.watch(pillsItemsProvider);
+    return ListProvider([], appPillItems: appPillItems);
   },
 );
