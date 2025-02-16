@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_exercise/config/menu/pill_items.dart';
+
+import '../../../domain/entities/pills.dart';
 
 class ProductBoxDecoration extends StatelessWidget {
   const ProductBoxDecoration({
@@ -32,7 +33,7 @@ class ProductBoxDecoration extends StatelessWidget {
         children: [
           Center(
             child: Image(
-              image: AssetImage(pillItem.image),
+              image: NetworkImage(pillItem.image),
             ),
           ),
           Align(

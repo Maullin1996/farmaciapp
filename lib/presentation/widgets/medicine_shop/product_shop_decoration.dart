@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:state_management_exercise/config/menu/pill_items.dart';
-import 'package:state_management_exercise/config/provider/productsManageProviders/amount_provider.dart';
-import 'package:state_management_exercise/config/provider/productsManageProviders/list_provider.dart';
+import 'package:state_management_exercise/presentation/providers/productsManageProviders/amount_provider.dart';
+import 'package:state_management_exercise/presentation/providers/productsManageProviders/list_provider.dart';
 import 'package:state_management_exercise/presentation/widgets/medicine_shop/quantity_controls.dart';
+
+import '../../../domain/entities/pills.dart';
 
 class ProductShopDecoration extends ConsumerWidget {
   final List<PillItems> pillsItems;
@@ -44,7 +45,7 @@ class ProductShopDecoration extends ConsumerWidget {
             SizedBox(
               height: 60,
               width: 60,
-              child: Image.asset(pillsInfo.image),
+              child: Image.network(pillsInfo.image),
             ),
 
             // Información del producto

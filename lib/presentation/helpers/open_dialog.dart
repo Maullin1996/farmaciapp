@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:state_management_exercise/config/menu/pill_items.dart';
+
+import '../../domain/entities/pills.dart';
 
 void openDialog(BuildContext context, PillItems pillItem) {
     showDialog(

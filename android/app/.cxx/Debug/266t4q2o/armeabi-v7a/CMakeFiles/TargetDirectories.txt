@@ -1,0 +1,2 @@
+F:/movile_apps/weinflu_course/provider/state_management_exercise/android/app/.cxx/Debug/266t4q2o/armeabi-v7a/CMakeFiles/edit_cache.dir
+F:/movile_apps/weinflu_course/provider/state_management_exercise/android/app/.cxx/Debug/266t4q2o/armeabi-v7a/CMakeFiles/rebuild_cache.dir
