@@ -5,6 +5,5 @@ import 'package:state_management_exercise/infraestructure/pills_information/repo
 import '../../../infraestructure/pills_information/datasources/firebase_datasource.dart';
 
 final pillRepositoryProvider = Provider((ref) {
-  ref.keepAlive();
   return PillsRepositoryImpl(FirebaseDatasource());
 });
