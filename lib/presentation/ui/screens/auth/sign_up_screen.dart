@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:state_management_exercise/infraestructure/services/auth_service.dart';
 import 'package:weinds/weinds.dart';
 import 'package:go_router/go_router.dart';
 
@@ -106,7 +107,15 @@ class _SignUpForm extends ConsumerWidget {
                   }
                 }),
             SizedBox(height: 20),
-            BuildButton(text: FarmaciAppCopys.singOutGoogle, onPressed: () {}),
+            BuildButton(
+                text: FarmaciAppCopys.singOutGoogle,
+                onPressed: () async {
+                  final navigator = Navigator.of(context);
+                  await AuthService().loginWithGoogle();
+                  if (await userValidator()) {
+                    navigator.pop();
+                  }
+                }),
             SizedBox(height: 40),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -118,7 +127,8 @@ class _SignUpForm extends ConsumerWidget {
                 TextButton(
                   onPressed: () =>
                       context.pushReplacementNamed(SignInScreen.name),
-                  child: Text(FarmaciAppCopys.singIn, style: TextStyle(fontSize: 14)),
+                  child: Text(FarmaciAppCopys.singIn,
+                      style: TextStyle(fontSize: 14)),
                 ),
               ],
             ),

@@ -25,7 +25,6 @@ class PillsNotifier extends StateNotifier<List<PillItems>> {
     try {
       final pills = await fetchPills();
       state = pills;
-      print("Medicamentos cargados: ${pills.length}");
     } catch (e) {
       print("Error al cargar los medicamentos: $e");
     }

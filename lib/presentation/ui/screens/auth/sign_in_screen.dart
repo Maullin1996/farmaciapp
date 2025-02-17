@@ -9,6 +9,7 @@ import 'package:state_management_exercise/config/provider/authProviders/sign_in_
 import 'package:state_management_exercise/presentation/helpers/user_validator.dart';
 
 import '../../../../design/copys.dart';
+import '../../../../infraestructure/services/auth_service.dart';
 
 class SignInScreen extends StatelessWidget {
   static const name = 'singIn';
@@ -103,7 +104,15 @@ class _SignInForm extends ConsumerWidget {
             },
           ),
           SizedBox(height: 15),
-          BuildButton(text: FarmaciAppCopys.singInGoogle, onPressed: () {}),
+          BuildButton(
+            text: FarmaciAppCopys.singInGoogle, 
+            onPressed: () async{
+              final navigator = Navigator.of(context);
+              await AuthService().loginWithGoogle();
+              if (await userValidator()) {
+                  navigator.pop();
+              }
+            }),
           SizedBox(height: 50),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
