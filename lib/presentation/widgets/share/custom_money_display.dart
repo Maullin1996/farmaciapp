@@ -1,5 +1,5 @@
 import 'package:flutter/widgets.dart';
-import 'package:intl/intl.dart';
+import 'package:state_management_exercise/presentation/helpers/intl.dart';
 
 class CustomMoneyDisplay extends StatelessWidget {
   final TextStyle? textStyle;
@@ -9,9 +9,7 @@ class CustomMoneyDisplay extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final formatter = NumberFormat.currency(
-        locale: 'eu', customPattern: '#,###\u00a4', symbol: '');
-    final String convertedMoneyToString = formatter.format(amount);
+    final String convertedMoneyToString = formatter(amount);
     final splitConvertedValues = convertedMoneyToString.split(',');
     return Text(
       '\$${splitConvertedValues[0]}',

@@ -5,7 +5,7 @@ class FarmaciAppCopys {
   static const String passwordUser = 'Password';
   static const String nameUser = 'Name';
   static const String singIn = 'Sing In';
-  static const String singUp = 'Sign up';
+  static const String singUp = 'Sign Up';
   static const String singUpText = 'Get Started';
   static const String singOut = 'Sign out';
   static const String singInGoogle = 'Sing In With Google';

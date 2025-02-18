@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../domain/entities/pills.dart';
+import '../../../domain/entities/pills.dart';
 
 void openDialog(BuildContext context, PillItems pillItem) {
     showDialog(

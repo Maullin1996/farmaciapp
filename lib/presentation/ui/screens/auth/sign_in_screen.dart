@@ -37,6 +37,7 @@ class SignInScreen extends StatelessWidget {
                       height: 20,
                     ),
                     IconButton(
+                        key: Key('backButton'),
                         onPressed: () {
                           context.pop();
                         },
@@ -47,6 +48,7 @@ class SignInScreen extends StatelessWidget {
                         )),
                     Center(
                       child: Text(
+                        key: Key('title'),
                         FarmaciAppCopys.nameApp,
                         style: TextStyle(
                             color: Colors.white,
@@ -77,6 +79,7 @@ class _SignInForm extends ConsumerWidget {
           child: Column(
         children: [
           CustomTextFormField(
+            key: Key('emailField'),
             label: FarmaciAppCopys.emailUser,
             errorMessage: !signInForm.isPosting
                 ? signInForm.userEmail.errorMessage
@@ -85,6 +88,7 @@ class _SignInForm extends ConsumerWidget {
           ),
           SizedBox(height: 25),
           CustomTextFormField(
+            key: Key('passwordField'),
             label: FarmaciAppCopys.passwordUser,
             errorMessage: !signInForm.isPosting
                 ? signInForm.userPassword.errorMessage
@@ -94,6 +98,7 @@ class _SignInForm extends ConsumerWidget {
           ),
           SizedBox(height: 70),
           BuildButton(
+            key: Key('singInButton'),
             text: FarmaciAppCopys.singIn,
             onPressed: () async{
               final navigator = Navigator.of(context);
@@ -119,6 +124,7 @@ class _SignInForm extends ConsumerWidget {
             children: [
               Text(FarmaciAppCopys.notAccount, style: TextStyle(fontSize: 14),),
               TextButton(
+                  key: Key('registerButton'),
                   onPressed: () {
                     context.pushReplacementNamed(SignUpScreen.name);
                   },

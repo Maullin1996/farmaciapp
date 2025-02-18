@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:state_management_exercise/presentation/providers/pills_items/pills_provider.dart';
 import 'package:state_management_exercise/presentation/providers/productsManageProviders/list_provider.dart';
-import 'package:state_management_exercise/presentation/helpers/open_dialog.dart';
+import 'package:state_management_exercise/presentation/widgets/share/open_dialog.dart';
 import 'package:state_management_exercise/presentation/widgets/widgets.dart';
 
 //import '../../../config/menu/pill_items.dart';
